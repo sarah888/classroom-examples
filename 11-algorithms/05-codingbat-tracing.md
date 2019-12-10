@@ -51,3 +51,23 @@ def changeXY(s: str) -> str:
     
     return s[0] + changeXY(s[1:])
 ```
+
+### pairStar
+Given a string, compute recursively a new string where identical chars that are adjacent in the original string are separated from each other by a "*".
+```
+pairStar("hello") -> "hel*lo"
+pairStar("a") -> "a"
+```
+Solutions:
+
+```python
+def pairStar(string: str):
+    if len(string) <= 1:
+        return string
+
+    if string[0] == string[1]:
+        return string[0] + '*' + pairStar(string[1:])
+
+    return string[0] + pairStar(string[1:])
+```
+
