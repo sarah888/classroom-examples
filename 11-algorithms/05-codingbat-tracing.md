@@ -32,22 +32,27 @@ def double(n: int) -> int:
 
 ---**End example (YOUR CONTRIBUTIONS BELOW HERE)**---
 
-### changeXY
-Given a string, compute recursively (no loops) a new string where all the lowercase 'x' chars have been changed to 'y' chars.
+## Example:
+### pairStar
+Given a string, compute recursively a new string where identical chars that are adjacent in the original string are separated from each other by a "*".
 ```
-changeXY("codex") → "codey"
-changeXY("xxhixx") → "yyhiyy"
-changeXY("xhixhix") → "yhiyhiy"
+pairStar("aaaa") -> "a*a*a*a"
+pairStar("a") -> "a"
+pairStar("hello") -> "hel*lo"
+
 ```
 Solutions:
 
 ```python
-def changeXY(s: str) -> str:
-    if len(s) == 0:
-        return s
-    
-    if s[0] == 'x':
-        return 'y' + changeXY(s[1:])
-    
-    return s[0] + changeXY(s[1:])
+def pairStar(string: str):
+    character = 0
+    if len(string) <= 1:
+        return string
+
+    if string[character] == string[character+1]:
+        return pairStar(string[character] + '*' + string[character+1:])
+        character += 2
+
+    return pairStar(string[character] + string[character+1:])
+    character += 1
 ```
